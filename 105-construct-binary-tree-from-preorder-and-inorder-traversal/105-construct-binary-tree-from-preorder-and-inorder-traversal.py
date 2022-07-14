@@ -13,8 +13,9 @@ class Solution:
             global idx
             if s > e:
                 return None
-            m = pre_idx[preorder[idx]]
-            root = TreeNode(val = preorder[idx])
+            val = preorder[idx]
+            m = pre_idx[val]
+            root = TreeNode(val = val)
             idx+=1
             root.left = dfs(s, m-1)
             root.right = dfs(m+1,e)
