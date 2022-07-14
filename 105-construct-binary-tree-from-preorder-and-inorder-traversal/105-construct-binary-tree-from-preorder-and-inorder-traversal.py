@@ -8,14 +8,12 @@ class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         global idx
         idx = 0
-        pre_idx = [-1 for _ in range(6001)]
-        for i, j in enumerate(inorder):
-            pre_idx[j+3000] = i
+        pre_idx = {j : i for i,j in enumerate(inorder)}
         def dfs(s, e):
             global idx
             if s > e:
                 return None
-            m = pre_idx[preorder[idx]+3000]
+            m = pre_idx[preorder[idx]]
             root = TreeNode(val = preorder[idx])
             idx+=1
             root.left = dfs(s, m-1)
