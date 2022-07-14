@@ -16,7 +16,6 @@ class Solution:
             val = preorder[idx]
             idx+=1
             m = pre_idx[val]
-            root = TreeNode(val, dfs(s,m-1), dfs(m+1,e))
-            return root
+            return TreeNode(val, dfs(s,m-1), dfs(m+1,e))
         return dfs(0, len(preorder)-1)
             
