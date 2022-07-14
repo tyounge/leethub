@@ -14,11 +14,9 @@ class Solution:
             if s > e:
                 return None
             val = preorder[idx]
-            m = pre_idx[val]
-            root = TreeNode(val = val)
             idx+=1
-            root.left = dfs(s, m-1)
-            root.right = dfs(m+1,e)
+            m = pre_idx[val]
+            root = TreeNode(val, dfs(s,m-1), dfs(m+1,e))
             return root
         return dfs(0, len(preorder)-1)
             
