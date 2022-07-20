@@ -14,8 +14,9 @@ class Solution:
             for _ in range(len(dq[x])):
                 i = dq[x].popleft()
                 idx[i] += 1
-                if len(words[i]) == idx[i]:
+                j = idx[i]
+                if len(words[i]) == j:
                     ans += 1
                 else:
-                    dq[alp[words[i][idx[i]]]].append(i)
+                    dq[alp[words[i][j]]].append(i)
         return ans
