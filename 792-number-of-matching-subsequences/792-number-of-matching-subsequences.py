@@ -5,7 +5,6 @@ class Solution:
         ans = 0
         cnt = 0
         alp = {j : i for i,j in enumerate('abcdefghijklmnopqrstuvwxyz')}
-        print(alp)
         dq = [deque() for _ in range(26)]
         for i in range(len(words)):
             c = alp[words[i][0]]
