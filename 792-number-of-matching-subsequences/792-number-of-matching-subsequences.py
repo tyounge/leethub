@@ -4,13 +4,14 @@ class Solution:
     def numMatchingSubseq(self, s: str, words: List[str]) -> int:
         ans = 0
         cnt = 0
-        a = ord('a')
+        alp = {j : i for i,j in enumerate('abcdefghijklmnopqrstuvwxyz')}
+        print(alp)
         dq = [deque() for _ in range(26)]
         for i in range(len(words)):
-            c = ord(words[i][0]) - a
+            c = alp[words[i][0]]
             dq[c].append([i,0])
         for c in s:
-            x = ord(c) - a
+            x = alp[c]
             sz = len(dq[x])
             for _ in range(sz):
                 i, j = dq[x].popleft()
@@ -18,5 +19,5 @@ class Solution:
                 if len(words[i]) == j:
                     ans += 1
                 else:
-                    dq[ord(words[i][j]) - a].append([i,j])
+                    dq[alp[words[i][j]]].append([i,j])
         return ans
