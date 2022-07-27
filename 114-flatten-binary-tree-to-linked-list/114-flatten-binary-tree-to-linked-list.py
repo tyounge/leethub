@@ -13,12 +13,10 @@ class Solution:
             return node
         l = self.dfs(node.left)
         r = self.dfs(node.right)
-        print(node,l,r)
         if l:
             l.right = node.right
             node.right = node.left
         node.left = None
-        print(node,l,r)
         
         return r if r else l
             
